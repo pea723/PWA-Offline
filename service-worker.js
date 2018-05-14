@@ -4,7 +4,7 @@ self.addEventListener('install', function(event) {
       return cache.addAll([
         '/',
         '/service-worker.js',
-        '/index.html',
+        '/home.html',
         '/manifest.json',
         '/css/style.css',
         '/data/chumon.txt',
