@@ -1,8 +1,26 @@
 {
   "name": "注文の多い料理店",
-  "short_name": "注文...宮澤",
-  "start_url": "/home.html",
-  "display": "standalone",
+  "short_name": "注多料",
+  "start_url": "/",
+  "display": "fullscreen",
   "background_color": "#eee",
-  "description": "Offline Book Reader"
+  "description": "Offline Book Reader",
+  "thema_color": "#f9f6ef",
+  "icons": [
+    {
+      "src": "/img/48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/img/96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/img/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
 }

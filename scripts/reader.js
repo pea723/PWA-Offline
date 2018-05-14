@@ -5,6 +5,7 @@ $(function() {
   var right = 0;
   var width = window.innerWidth - 13;
   var wrap_w = 0;
+  var threshold = width * 0.2;
 
   xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
@@ -17,9 +18,9 @@ $(function() {
   xhr.send('');
 
   function writer() {
-    text = text.split('\n');
+    text = text.split('\n\n');
     text.forEach(function(e) {
-      $('<p>&nbsp'+e+'</p>').appendTo('#wrapper');
+      $('<p>&nbsp&nbsp'+e+'</p>').appendTo('#wrapper');
        wrap_w = $('#wrapper').width()
     });
   }
@@ -45,9 +46,9 @@ $(function() {
     pos = getPos(event);
   });
   $('body').on('touchmove', function(event) {
-    if (pos - getPos(event) > 50) {
+    if (pos - getPos(event) > threshold) {
       _dir = 'right';
-    } else if (pos - getPos(event) < -50) {
+    } else if (pos - getPos(event) < -threshold) {
       _dir = 'left';
     }
   });
