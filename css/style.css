@@ -1,0 +1,30 @@
+html, body, div, p, a, ul, li, ol {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
+body{
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
+
+#wrapper {
+  height: 100%;
+  background-color: #f9f6ef;
+}
+
+p {
+  padding-right: 4rem;
+  margin-top: 3rem;
+  margin-bottom: auto;
+  height: 37rem;
+  font-size: 1.1rem;
+  line-height: 2rem;
+  font-family: "ヒラギノ明朝 ProN W3", "HiraMinProN-W3", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝";
+  color: #373737;
+}
