@@ -6,6 +6,8 @@ html, body, div, p, a, ul, li, ol {
 html, body {
   overflow: hidden;
   height: 100%;
+  position: fixed;
+  top: 0;
 }
 
 body{
@@ -16,13 +18,15 @@ body{
 #wrapper {
   height: 100%;
   background-color: #f9f6ef;
+  position: fixed;
+  right: 0;
 }
 
 p {
-  padding-right: 4rem;
-  margin-top: 3rem;
+  padding-right: 0.5rem;
   margin-bottom: auto;
-  height: 37rem;
+  margin-top: 5%;
+  height: 90%;
   font-size: 1.1rem;
   line-height: 2rem;
   font-family: "ヒラギノ明朝 ProN W3", "HiraMinProN-W3", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝";
