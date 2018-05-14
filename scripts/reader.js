@@ -64,4 +64,7 @@ $(function() {
     move('right');
   });
 
+  $('#if-mobile').on('click', function() {
+    $(this).remove();
+  });
 });
