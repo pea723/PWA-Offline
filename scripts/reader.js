@@ -35,7 +35,7 @@ $(function() {
   function move(dir) {
     if (dir == 'right' && right <= -width) {
       right += width;
-    } else if (dir == 'left' && right >= -wrap_w+width*2) {
+    } else if (dir == 'left' && right >= -wrap_w+width) {
       right -= width;
     }
     _dir = '';
