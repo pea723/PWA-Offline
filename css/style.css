@@ -18,6 +18,7 @@ body{
   background-color: #f9f6ef;
   position: fixed;
   right: 0;
+  transform: translate3d(0, 0, 0);
 }
 
 p {
@@ -29,4 +30,26 @@ p {
   line-height: 2rem;
   font-family: "ヒラギノ明朝 ProN W3", "HiraMinProN-W3", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝";
   color: #373737;
+}
+
+#controller {
+  position: fixed;
+  top: 0;
+  height: 25%;
+  background-color: #0f0;
+  z-index: 100;
+}
+
+#left {
+  position: fixed;
+  width: 30%;
+  height: 100%;
+  left: 0;
+}
+
+#right {
+  position: fixed;
+  width: 30%;
+  height: 100%;
+  right: 0;
 }
