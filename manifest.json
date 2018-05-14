@@ -1,7 +1,7 @@
 {
   "name": "注文の多い料理店",
   "short_name": "注文...宮澤",
-  "start_url": "/index.html",
+  "start_url": "/home.html",
   "display": "standalone",
   "background_color": "#eee",
   "description": "Offline Book Reader"
