@@ -1,35 +1,665 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <script src="/scripts/jquery.js"></script>
-  <script>
-      if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js');
-    }
-  </script>
-  <script src='/scripts/reader.js'></script>
-  <title>注文の多い料理店(PWAでオフライン)</title>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="copyright" content="Nippon Professional Baseball Organization.">
+<meta name="author" content="一般社団法人日本野球機構">
+<meta name="keywords" content="野球,プロ野球,野球機構,日本野球機構,日本プロフェッショナル野球組織,ＮＰＢ,NPB,セ・リーグ,パ・リーグ,交流戦,日本シリーズ,オールスター">
+<meta name="description" content="日本野球機構（NPB）オフィシャルサイト。プロ野球12球団の試合日程・結果や予告先発、ドラフト会議をはじめ、事業・振興に関する情報を掲載。また、オールスター･ゲームや日本シリーズなど主催試合のチケット情報もご覧いただけます。">
+<meta name="viewport" content="width=1100">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="http://p.npb.jp/img/webclip.png">
+<link rel="Shortcut Icon" href="http://p.npb.jp/img/favicon.ico" type="image/x-icon">
+
+<!--[if lt IE 9]>
+<script src="http://p.npb.jp/common/js/html5shiv.min.js"></script>
+<![endif]-->
+
+<script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="http://p.npb.jp/common/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://p.npb.jp/common/js/jquery.easing.js"></script>
+<script type="text/javascript" src="http://p.npb.jp/common/js/jquery.flicksimple.js"></script>
+<script type="text/javascript" src="/common/js/common.js"></script>
+<script type="text/javascript" src="http://p.npb.jp/common/js/device.js?20180522"></script>
+<link rel="stylesheet" href="http://p.npb.jp/common/css/format.css">
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-71379438-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+	<link rel="stylesheet" href="/common/css/layout.css">
+	<link rel="stylesheet" href="/common/css/common.css">
+	<link rel="stylesheet" href="/bis/common/css/bis.css">
+
+<!--【BIS用のCSS・スクリプト】-->
+<link rel="stylesheet" href="/bis/common/css/history_leaders.css" type="text/css">
+<link rel="stylesheet" href="/bis/common/css/navi_history.css" type="text/css">
+<script type="text/javascript" src="/bis/common/js/url_jump.js"></script>
+
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:url" content="http://npb.jp/bis/history/ssp_era.html">
+	<meta property="og:s:site_name" content="NPB.jp 日本野球機構">
+	<meta property="og:title" content="歴代最高記録 防御率 【シーズン記録】">
+	<meta property="og:image" content="http://p.npb.jp/img/ogp/default.jpg">
+	<meta property="fb:app_id" content="642572735845596">
+	<title>歴代最高記録 防御率 【シーズン記録】 | NPB.jp 日本野球機構</title>
 </head>
-<body>
-  <div id="if-pc"><h2>iOS 11.3~でご覧になってください。</h2>
-    <h2>Androidの対応状況はよく知りません。</h2>
-    <h1>https://chuumon.herokuapp.com</h1>
+<body class="page_bis">
+	<div id="layout">
+
+<header>
+	<!-- 試合速報のインクルード取込 ここから -->
+	<div id="header_score" class="portrait" style="overflow: hidden;">
+  <div class="score_wrap portrait" style="position: relative; transition: none; transform: translate3d(0px, 0px, 0px);">
+    <div class="score_box date portrait">2018<br>9/5 Wed.</div>
+
+        <div class="score_box portrait">
+      <a href="javascript:;">
+      <img src="/img/common/logo/2018/logo_g_s.gif" alt="読売ジャイアンツ" title="読売ジャイアンツ" class="logo_left">
+      <img src="/img/common/logo/2018/logo_db_s.gif" alt="横浜DeNAベイスターズ" title="横浜DeNAベイスターズ" class="logo_right">
+      <div class="score">-</div>
+      <div class="state">（富　山）<br class="hide_pc">18:00</div>
+      </a>
+    </div>
+        <div class="score_box portrait">
+      <a href="javascript:;">
+      <img src="/img/common/logo/2018/logo_s_s.gif" alt="東京ヤクルトスワローズ" title="東京ヤクルトスワローズ" class="logo_left">
+      <img src="/img/common/logo/2018/logo_d_s.gif" alt="中日ドラゴンズ" title="中日ドラゴンズ" class="logo_right">
+      <div class="score">-</div>
+      <div class="state">（神　宮）<br class="hide_pc">18:00</div>
+      </a>
+    </div>
+        <div class="score_box portrait">
+      <a href="javascript:;">
+      <img src="/img/common/logo/2018/logo_c_s.gif" alt="広島東洋カープ" title="広島東洋カープ" class="logo_left">
+      <img src="/img/common/logo/2018/logo_t_s.gif" alt="阪神タイガース" title="阪神タイガース" class="logo_right">
+      <div class="score">-</div>
+      <div class="state">（マツダ）<br class="hide_pc">18:00</div>
+      </a>
+    </div>
+        <div class="score_box portrait">
+      <a href="javascript:;">
+      <img src="/img/common/logo/2018/logo_f_s.gif" alt="北海道日本ハムファイターズ" title="北海道日本ハムファイターズ" class="logo_left">
+      <img src="/img/common/logo/2018/logo_l_s.gif" alt="埼玉西武ライオンズ" title="埼玉西武ライオンズ" class="logo_right">
+      <div class="score">-</div>
+      <div class="state">（旭　川）<br class="hide_pc">18:00</div>
+      </a>
+    </div>
+        <div class="score_box portrait">
+      <a href="javascript:;">
+      <img src="/img/common/logo/2018/logo_m_s.gif" alt="千葉ロッテマリーンズ" title="千葉ロッテマリーンズ" class="logo_left">
+      <img src="/img/common/logo/2018/logo_h_s.gif" alt="福岡ソフトバンクホークス" title="福岡ソフトバンクホークス" class="logo_right">
+      <div class="score">-</div>
+      <div class="state">（ZOZOマリン）<br class="hide_pc">18:15</div>
+      </a>
+    </div>
+        <div class="score_box portrait">
+      <a href="javascript:;">
+      <img src="/img/common/logo/2018/logo_bs_s.gif" alt="オリックス・バファローズ" title="オリックス・バファローズ" class="logo_left">
+      <img src="/img/common/logo/2018/logo_e_s.gif" alt="東北楽天ゴールデンイーグルス" title="東北楽天ゴールデンイーグルス" class="logo_right">
+      <div class="score">-</div>
+      <div class="state">（ほっと神戸）<br class="hide_pc">18:00</div>
+      </a>
+    </div>
+    
+    <div class="score_box detail hide_sp portrait"><a href="javascript:;">&gt;&gt;</a></div>
   </div>
-  <div id="if-mobile">
-    <h1>注文の多い料理店</h1>
-    <h2>宮沢賢治</h2>
-    <p class="bottom-part">ホーム画面に追加してください</p>
-  </div>
-  <div id="wrapper"><p id="main"></p></div>
-  <div id="controller">
-    <div id="left"></div>
-    <div id="right"></div>
-  </div>
-</body>
-</html>
+  <div class="score_box detail hide_pc"><a href="/scores/">&gt;&gt;</a></div>
+</div>
+<script>
+$(function($) {
+  $('#header_team').addClass("hide_pc");
+});
+</script>
+
+	<!-- 試合速報のインクルード取込 ここまで -->
+
+	<div id="header_team" class="hide_sp hide_pc">
+		<div class="team_list">
+			<ul class="league">
+				<li><a href="/cl/" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/flag_central_s.gif" width="59" height="38" alt="セントラル・リーグ" title="セントラル・リーグ"></a></li>
+				<li><a href="http://www.carp.co.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_c_m.gif" width="38" height="38" alt="広島東洋カープ" title="広島東洋カープ"></a></li>
+				<li><a href="http://hanshintigers.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_t_m.gif" width="38" height="38" alt="阪神タイガース" title="阪神タイガース"></a></li>
+				<li><a href="http://www.baystars.co.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_db_m.gif" width="38" height="38" alt="横浜DeNAベイスターズ" title="横浜DeNAベイスターズ"></a></li>
+				<li><a href="http://www.giants.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_g_m.gif" width="38" height="38" alt="読売ジャイアンツ" title="読売ジャイアンツ"></a></li>
+				<li><a href="http://dragons.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_d_m.gif" width="38" height="38" alt="中日ドラゴンズ" title="中日ドラゴンズ"></a></li>
+				<li><a href="http://www.yakult-swallows.co.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_s_m.gif" width="38" height="38" alt="東京ヤクルトスワローズ" title="東京ヤクルトスワローズ"></a></li>
+			</ul>
+			<ul class="league">
+				<li><a href="/pl/" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/flag_pacific_s.gif" width="59" height="38" alt="パシフィック・リーグ" title="パシフィック・リーグ"></a></li>
+				<li><a href="http://www.softbankhawks.co.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_h_m.gif" width="38" height="38" alt="福岡ソフトバンクホークス" title="福岡ソフトバンクホークス"></a></li>
+				<li><a href="http://www.seibulions.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_l_m.gif" width="38" height="38" alt="埼玉西武ライオンズ" title="埼玉西武ライオンズ"></a></li>
+				<li><a href="http://www.rakuteneagles.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_e_m.gif" width="38" height="38" alt="東北楽天ゴールデンイーグルス" title="東北楽天ゴールデンイーグルス"></a></li>
+				<li><a href="http://www.buffaloes.co.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_bs_m.gif" width="38" height="38" alt="オリックス・バファローズ" title="オリックス・バファローズ"></a></li>
+				<li><a href="http://www.fighters.co.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_f_m.gif" width="38" height="38" alt="北海道日本ハムファイターズ" title="北海道日本ハムファイターズ"></a></li>
+				<li><a href="http://www.marines.co.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_m_m.gif" width="38" height="38" alt="千葉ロッテマリーンズ" title="千葉ロッテマリーンズ"></a></li>
+			</ul>
+			<ul class="samurai">
+				<li><a href="http://www.japan-baseball.jp/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/logo_samurai_s.gif" width="49" height="49" alt="侍ジャパン" title="侍ジャパン"></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="header_nav">
+		<div class="wrap">
+			<h1><a href="/">日本野球機構オフィシャルサイト</a></h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/games/">試合</a>
+						<div class="menu unit">
+							<ul>
+								<li><a href="/games/">セ・パ公式戦</a></li>
+								<li><a href="/announcement/">公示</a></li>
+								<li><a href="/interleague/">セ・パ交流戦</a></li>
+								<li><a href="/nippons/">日本シリーズ</a></li>
+								<li><a href="/allstar/">オールスター・ゲーム</a></li>
+								<li><a href="/preseason/">オープン戦</a></li>
+							</ul>
+							<ul>
+								<li><a href="/farm/">ファーム公式戦</a></li>
+								<li><a href="/farmchamp/">ファーム日本選手権</a></li>
+								<li><a href="/freshas/">フレッシュオールスター・ゲーム</a></li>
+								<li><a href="/challenge/">イースタン・リーグ チャレンジ・マッチ</a></li>
+								<li><a href="/preseason_farm/">春季教育リーグ</a></li>
+								<li><a href="/phoenix/">秋季教育リーグ</a></li>
+							</ul>
+							<ul>
+								<li><a href="/exhibition/">特別試合</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="/bis/2018/stats/">成績・記録</a>
+						<div class="menu unit">
+							<ul>
+								<li><a href="/bis/2018/stats/">シーズン成績</a></li>
+								<li><a href="/award/">表彰選手</a></li>
+								<li><a href="/history/">達成記録</a></li>
+								<li><a href="/bis/yearly/">年度別成績（1936-2017）</a></li>
+								<li><a href="/bis/history/">歴代最高記録（通算記録・シーズン記録）</a></li>
+								<li><a href="/stadium/">球場情報</a></li>
+							</ul>
+							<ul>
+								<li><a href="/statistics/">統計データ</a></li>
+								<li><a href="/scoring/">野球の記録について</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="/teams/">球団・選手</a>
+						<div class="menu unit">
+							<ul>
+								<li><a href="/teams/">球団別インデックス</a></li>
+								<li><a href="/bis/teams/">選手一覧</a></li>
+								<li><a href="/bis/players/">個人年度別成績</a></li>
+								<li><a href="/announcement/">公示</a></li>
+								<li><a href="/draft/">ドラフト会議</a></li>
+								<li><a href="/camp/">キャンプガイド</a></li>
+							</ul>
+							<ul>
+								<li><a href="/cl/">セントラル・リーグ</a></li>
+								<li><a href="/pl/">パシフィック・リーグ</a></li>
+								<li><a href="/umpires/">審判員・記録員</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="/japanus/2018/">日本代表</a>
+						<div class="menu unit">
+							<ul>
+								<li><a href="/wbc/">ワールド・ベースボール・クラシック</a></li>
+								<li><a href="/premier/">WBSC プレミア12</a></li>
+								<li><a href="/olympic/">オリンピック競技大会</a></li>
+								<li><a href="/apbc/">アジア プロ野球チャンピオンシップ</a></li>
+								<li><a href="/japan/">侍ジャパン強化試合</a></li>
+								<li><a href="/japanus/">日米野球</a></li>
+							</ul>
+							<ul>
+								<li><a href="/alljapan/">野球日本代表（その他）</a></li>
+								<li><a href="/asia/">アジアシリーズ／日韓クラブCS</a></li>
+								<li><a href="/winterleague/">ウインター・リーグ</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="/news/npb_all.html">ニュース</a>
+						<div class="menu unit">
+							<ul>
+								<li><a href="/news/npb_all.html">NPBニュース</a></li>
+								<li><a href="/news/teamnews_all.html">12球団ニュース</a></li>
+								<li><a href="/npb/">NPBからのお知らせ</a></li>
+								<li><a href="/event/">プロ野球年間行事日程</a></li>
+								<li><a href="/event/nenkan/">スケジュールカレンダー</a></li>
+								<li><a href="/video/">NPBムービー</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="/slogan/">事業・振興</a>
+						<div class="menu unit">
+							<ul>
+								<li><a href="/slogan/">NPBスローガン</a></li>
+								<li><a href="/npb/#ctg01">試合観戦契約約款/暴力団等排除活動</a></li>
+								<li><a href="/anti-doping/">アンチ・ドーピング</a></li>
+								<li><a href="/rookie/">新人選手研修会</a></li>
+								<li><a href="/npb/#ctg23">セカンドキャリア</a></li>
+								<li><a href="/npb/kaifuku.html">学生野球資格回復制度</a></li>
+							</ul>
+							<ul>
+								<li><a href="/umpireschool/">NPBアンパイア・スクール</a></li>
+								<li><a href="/npb/#ctg25">野球振興</a></li>
+								<li><a href="/junior/">12球団ジュニアトーナメント</a></li>
+								<li><a href="/girls/">NPBガールズトーナメント</a></li>
+								<li><a href="/npb/#ctg21">東日本大震災復興支援</a></li>
+								<li><a href="/bbfesta/">ベースボールフェスタ</a></li>
+							</ul>
+							<ul>
+								<li><a href="/auction/">チャリティーオークション</a></li>
+								<li><a href="/gbp/">NPB Green Baseball Project</a></li>
+								<li><a href="/cool/">環境貢献活動</a></li>
+								<li><a href="/esports/">eスポーツ</a></li>
+								<li><a href="/kyogikai/">日本野球協議会</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="http://shop.npb.or.jp/npbshop/ad.html?ccd=t10092408" target="_blank" onclick="ga('send', 'event', 'menu', 'click', this.href);">グッズ</a>
+						<div class="menu unit">
+							<ul>
+								<li><a href="/books/">グッズ・書籍のご案内</a></li>
+								<li><a href="/game/">承認ゲームメーカー</a></li>
+								<li><a href="http://shop.npb.or.jp/npbshop/ad.html?ccd=t10092408" target="_blank" onclick="ga('send', 'event', 'gd_menu', 'click', this.href);">NPBオフィシャルオンラインショップ</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="search">
+						<a href="#">検索</a>
+						<div class="search_menu unit">
+							<div id="srchBox" class="watermark">
+								<style type="text/css">
+									#srchBox
+									{
+										width:298px;
+										_width:296px;
+										color:#ffffff;
+										text-align:left;
+									}
+									#srchBox *
+									{
+										margin:0;
+										padding:0;
+										font-size:13px;
+										*font-size:small;
+										*font:x-small;
+									}
+									#srchBox a img
+									{
+										border:none;
+									}
+									#srchBox #srch #srchForm
+									{
+										white-space:nowrap;
+									}
+									#srchBox #srchInput
+									{
+										width:180px;
+										padding: 0 10px;
+										height: 26px;
+										border: none;
+										vertical-align:bottom;
+										-webkit-appearance: none;
+										border-radius: 0;
+									}
+									#srchBox #srchBtn
+									{
+										background: url(/img/header/icon_search.gif) no-repeat 0 0;
+										width: 26px !important;
+										height: 26px !important;
+										text-indent: -99999em;
+										border: none;
+										-webkit-appearance: none;
+										border-radius: 0;
+									}
+									*html #srchBox #srchBtn
+									{
+										padding-top:2px;
+									}
+									*:first-child+html #srchBox #srchBtn
+									{
+										padding-top:2px;
+									}
+									#srchBox ul
+									{
+										margin-top:6px;
+										text-align:left;
+									}
+									#srchBox li
+									{
+										list-style-type:none;
+										display:inline;
+										zoom:1;
+										padding-right:10px;
+									}
+									#srchBox li input
+									{
+										zoom:1;
+										margin-right:2px;
+										_margin:-4px 0 -4px -4px;
+										vertical-align:middle;
+										border:0;
+									}
+									*:+html #srchBox li input
+									{
+										margin:-4px 0 -4px -4px;
+									}
+									#srchBox #srchLogo
+									{
+										margin:6px 6px 6px 0;
+										text-align:right;
+									}
+									#srchBox #srchLogo a
+									{
+										color:#ffffff;
+										text-decoration:none;
+										font-size:85%;
+									}
+									#srchBox #srchLogo a:hover
+									{
+										text-decoration:underline;
+									}
+									#srchBox.watermark
+									{
+										padding-bottom: 6px;
+									}
+									#srchBox.watermark #srchInput
+									{
+										background: #fff url(http://i.yimg.jp/images/search/customsearch/yjlogo/yjlogo_type4.gif) center center no-repeat;
+									}
+									#srchBox.watermark #srchInput.nomark
+									{
+										background: #fff;
+									}
+									#srchBox.watermark #srchLogo
+									{
+										display: none;
+									}
+
+								</style>
+								<form action="/site_search/" method="get" id="srch">
+									<p id="srchForm">
+										<input type="text" name="p" id="srchInput" class=""><input type="submit" value="検索" id="srchBtn" onclick="document.getElementById('srchInput').focus();">
+										<input type="hidden" id="fr" name="fr" value="cse">
+										<input type="hidden" id="ei" name="ei" value="UTF-8">
+										<input type="hidden" id="csid" name="csid" value="T_zWAoFZFrTG3kEDqW6eieiQd9ouvBkDL2rZ">
+									</p>
+									<input type="hidden" name="vs" value="npb.jp" id="yjInsite">
+								</form>
+								<img src="http://custom.search.yahoo.co.jp/images/window/T_zWAoFZFrTG3kEDqW6eieiQd9ouvBkDL2rZ.gif">
+							</div>
+							<script type="text/javascript">
+								(function() {
+									var sb = document.getElementById('srchBox');
+									if (sb && sb.className == 'watermark') {
+										var si = document.getElementById('srchInput');
+										var f = function() { si.className = 'nomark'; };
+										var b = function() {
+											if (si.value == '') {
+												si.className = '';
+											}
+										};
+										si.onfocus = f;
+										si.onblur = b;
+										if (!/[&?]p=[^&]/.test(location.search)) {
+											b();
+										} else {
+											f();
+										}
+									}
+								})();
+							</script>
+							<!-- /#srchBox -->
+						</div>
+					</li>
+				</ul>
+			</nav>
+			<div class="social">
+				<ul>
+					<li><a href="/eng/">English</a></li>
+					<li class="tw"><a href="https://twitter.com/npb" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"></a></li>
+					<li class="fb"><a href="https://www.facebook.com/npb.official/" target="_blank" onclick="ga('send', 'event', 'header', 'click', this.href);"></a></li>
+					<li class="sp_menu hide_pc" id="sp_menu"><a href="#"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+
+
+
+<h2 class="cate_bis">
+		<span>歴代最高記録<span class="hide_sp" id="h2_right"><img src="/img/bis/boy1.png" alt=""></span></span>
+</h2>
+<!--【サイドメニュー】-->
+<!-- * ******* メニュー ******************************************** * --><nav class="third_menu">
+	<div class="wrap">
+		<div class="third_menu_ttl hide_pc">サブメニュー</div>
+		<dl class="unit_std">
+			<dt class="st_black"><a href="/bis/history/">歴代記録</a></dt>
+			<dd>
+				<ul>
+					<li><a href="index_alltime.html">通算記録ランキング</a></li>
+					<li><a href="index_active.html">通算記録 （現役選手）</a></li>
+					<li><a href="index_sseason.html">シーズン記録ランキング</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl class="unit_std unit_bt">
+			<dt class="st_red"><a href="index_sseason.html">シーズン記録ランキング</a></dt>
+			<dd>
+				<form name="history">
+					<select name="bat">
+						<option value="#">打撃／部門</option>
+						<option value="ssb_g">試合</option>
+						<option value="ssb_tpa">打席</option>
+						<option value="ssb_ab">打数</option>
+						<option value="ssb_r">得点</option>
+						<option value="ssb_h">安打</option>
+						<option value="ssb_2b">二塁打</option>
+						<option value="ssb_3b">三塁打</option>
+						<option value="ssb_hr">本塁打</option>
+						<option value="ssb_tb">塁打</option>
+						<option value="ssb_rbi">打点</option>
+						<option value="ssb_sb">盗塁</option>
+						<option value="ssb_cs">盗塁刺</option>
+						<option value="ssb_sh">犠打</option>
+						<option value="ssb_sf">犠飛</option>
+						<option value="ssb_bb">四球</option>
+						<option value="ssb_ibb">故意四球</option>
+						<option value="ssb_hp">死球</option>
+						<option value="ssb_so">三振</option>
+						<option value="ssb_gdp">併殺打</option>
+						<option value="ssb_avg">打率</option>
+						<option value="ssb_slg">長打率</option>
+						<option value="ssb_obp">出塁率</option>
+					</select>
+					<input type="button" value="選択" onclick="History_bat_jump()">
+					<select name="pit">
+						<option value="#">投手／部門</option>
+						<option value="ssp_g">登板</option>
+						<option value="ssp_cg">完投</option>
+						<option value="ssp_sho">完封勝</option>
+						<option value="ssp_nbb">無四球試合</option>
+						<option value="ssp_w">勝利</option>
+						<option value="ssp_l">敗北</option>
+						<option value="ssp_sv">セーブ</option>
+						<option value="ssp_hld">ホールド</option>
+						<option value="ssp_hldp">ＨＰ</option>
+						<option value="ssp_pct">勝率</option>
+						<option value="ssp_ip">投球回</option>
+						<option value="ssp_h">被安打</option>
+						<option value="ssp_hr">被本塁打</option>
+						<option value="ssp_bb">与四球</option>
+						<option value="ssp_hb">与死球</option>
+						<option value="ssp_so">奪三振</option>
+						<option value="ssp_wp">暴投</option>
+						<option value="ssp_bk">ボーク</option>
+						<option value="ssp_r">失点</option>
+						<option value="ssp_er">自責点</option>
+						<option value="ssp_era">防御率</option>
+					</select>
+					<input type="button" value="選択" onclick="History_pit_jump()">
+				</form>
+			</dd>
+		</dl>
+	</div>
+</nav>
+
+
+<!-- * *******/メニュー ******************************************** * -->
+		<div class="contents">
+<!--【メインコンテンツ】-->
+<!-- * ******* コンテンツ ****************************************** * --><div id="hidivmain"><div id="hidivheader"><div id="hidivtitle"><h1><a href="index_sseason.html"><img alt="シーズン記録ランキング" border="0" height="36" src="/bis/p/images_bis/biskun_pit1_s.gif" width="36"></a> 防御率 <span>【シーズン記録】</span></h1><div class="hidivsubtitle">防御率 1.20以下（各シーズン規定以上）</div></div><div><img class="hilndetail" src="/bis/p/images_bis/line_history.gif"></div></div><!-- -&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;- --><div id="hiupdate">■ 2017年度シーズン終了　現在</div><div align="center" id="hidivmaintbl"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr class="hiheader"><th class="hihdpos" nowrap="nowrap">順位</th><th class="hihdplayer" nowrap="nowrap">投手</th><th class="hihdteam" nowrap="nowrap">(所属)</th><th class="hihdaverage" nowrap="nowrap">防御率</th><th class="hihdseason" nowrap="nowrap">年度</th><th class="hihdip" nowrap="nowrap">投球回</th><th class="hihdstats" nowrap="nowrap">自責点</th></tr><tr class="hilist"><td>1</td><td class="hiplayer" nowrap="nowrap">藤本　英雄</td><td class="hiteam" nowrap="nowrap">(巨　人)</td><td class="hiaverage">0.73</td><td class="hiseason">(1943)</td><td class="hiip" nowrap="nowrap">432.2</td><td>35</td></tr><tr class="hilist"><td>2</td><td class="hiplayer" nowrap="nowrap">景浦　将</td><td class="hiteam" nowrap="nowrap">(タイガース)</td><td class="hiaverage">0.79</td><td class="hiseason">(1936秋)</td><td class="hiip" nowrap="nowrap">57<br></td><td>5</td></tr><tr class="hilist"><td>3</td><td class="hiplayer" nowrap="nowrap">沢村　栄治</td><td class="hiteam" nowrap="nowrap">(巨　人)</td><td class="hiaverage">0.81</td><td class="hiseason">(1937春)</td><td class="hiip" nowrap="nowrap">244<br></td><td>22</td></tr><tr class="hilist"><td>4</td><td class="hiplayer" nowrap="nowrap">野口　二郎</td><td class="hiteam" nowrap="nowrap">(大　洋)</td><td class="hiaverage">0.88</td><td class="hiseason">(1941)</td><td class="hiip" nowrap="nowrap">338<br></td><td>33</td></tr><tr class="hilist"><td>5</td><td class="hiplayer" nowrap="nowrap">林　安夫</td><td class="hiteam" nowrap="nowrap">(朝　日)</td><td class="hiaverage">0.887</td><td class="hiseason">(1943)</td><td class="hiip" nowrap="nowrap">294<br></td><td>29</td></tr><tr class="hilist"><td>6</td><td class="hiplayer" nowrap="nowrap">森　弘太郎</td><td class="hiteam" nowrap="nowrap">(阪　急)</td><td class="hiaverage">0.889</td><td class="hiseason">(1941)</td><td class="hiip" nowrap="nowrap">333.1</td><td>33</td></tr><tr class="hilist"><td>7</td><td class="hiplayer" nowrap="nowrap">野口　二郎</td><td class="hiteam" nowrap="nowrap">(　翼)</td><td class="hiaverage">0.930</td><td class="hiseason">(1940)</td><td class="hiip" nowrap="nowrap">387<br></td><td>40</td></tr><tr class="hilist"><td>8</td><td class="hiplayer" nowrap="nowrap">景浦　将</td><td class="hiteam" nowrap="nowrap">(タイガース)</td><td class="hiaverage">0.931</td><td class="hiseason">(1937春)</td><td class="hiip" nowrap="nowrap">106.1</td><td>11</td></tr><tr class="hilist"><td>9</td><td class="hiplayer" nowrap="nowrap">須田　博</td><td class="hiteam" nowrap="nowrap">(巨　人)</td><td class="hiaverage">0.97</td><td class="hiseason">(1940)</td><td class="hiip" nowrap="nowrap">436<br></td><td>47</td></tr><tr class="hilist"><td>10</td><td class="hiplayer" nowrap="nowrap">村山　実</td><td class="hiteam" nowrap="nowrap">(阪　神)</td><td class="hiaverage">0.980</td><td class="hiseason">(1970)</td><td class="hiip" nowrap="nowrap">156<br></td><td>17</td></tr><tr class="hilist"><td>11</td><td class="hiplayer" nowrap="nowrap">村松　幸雄</td><td class="hiteam" nowrap="nowrap">(名古屋)</td><td class="hiaverage">0.981</td><td class="hiseason">(1941)</td><td class="hiip" nowrap="nowrap">210.2</td><td>23</td></tr><tr class="hilist"><td>12</td><td class="hiplayer" nowrap="nowrap">林　安夫</td><td class="hiteam" nowrap="nowrap">(朝　日)</td><td class="hiaverage">1.01</td><td class="hiseason">(1942)</td><td class="hiip" nowrap="nowrap">541.1</td><td>61</td></tr><tr class="hilist"><td>13</td><td class="hiplayer" nowrap="nowrap">スタルヒン</td><td class="hiteam" nowrap="nowrap">(巨　人)</td><td class="hiaverage">1.045</td><td class="hiseason">(1938秋)</td><td class="hiip" nowrap="nowrap">197.2</td><td>23</td></tr><tr class="hilist"><td>14</td><td class="hiplayer" nowrap="nowrap">沢村　栄治</td><td class="hiteam" nowrap="nowrap">(巨　人)</td><td class="hiaverage">1.050</td><td class="hiseason">(1936秋)</td><td class="hiip" nowrap="nowrap">120.1</td><td>14</td></tr><tr class="hilist"><td>15</td><td class="hiplayer" nowrap="nowrap">若林　忠志</td><td class="hiteam" nowrap="nowrap">(阪　神)</td><td class="hiaverage">1.0600</td><td class="hiseason">(1943)</td><td class="hiip" nowrap="nowrap">415.2</td><td>49</td></tr><tr class="hilist"><td>16</td><td class="hiplayer" nowrap="nowrap">稲尾　和久</td><td class="hiteam" nowrap="nowrap">(西　鉄)</td><td class="hiaverage">1.0608</td><td class="hiseason">(1956)</td><td class="hiip" nowrap="nowrap">262.1</td><td>31</td></tr><tr class="hilist"><td>17</td><td class="hiplayer" nowrap="nowrap">若林　忠志</td><td class="hiteam" nowrap="nowrap">(タイガース)</td><td class="hiaverage">1.09</td><td class="hiseason">(1939)</td><td class="hiip" nowrap="nowrap">330<br></td><td>40</td></tr><tr class="hilist"><td>18</td><td class="hiplayer" nowrap="nowrap">須田　博</td><td class="hiteam" nowrap="nowrap">(巨　人)</td><td class="hiaverage">1.11</td><td class="hiseason">(1942)</td><td class="hiip" nowrap="nowrap">306.1</td><td>38</td></tr><tr class="hilist"><td>19</td><td class="hiplayer" nowrap="nowrap">神田　武夫</td><td class="hiteam" nowrap="nowrap">(南　海)</td><td class="hiaverage">1.14</td><td class="hiseason">(1942)</td><td class="hiip" nowrap="nowrap">372<br></td><td>47</td></tr><tr class="hilist"><td>20</td><td class="hiplayer" nowrap="nowrap">石丸　進一</td><td class="hiteam" nowrap="nowrap">(名古屋)</td><td class="hiaverage">1.15</td><td class="hiseason">(1943)</td><td class="hiip" nowrap="nowrap">311.1</td><td>40</td></tr><tr class="hilist"><td>21</td><td class="hiplayer" nowrap="nowrap">広瀬　習一</td><td class="hiteam" nowrap="nowrap">(巨　人)</td><td class="hiaverage">1.1851</td><td class="hiseason">(1942)</td><td class="hiip" nowrap="nowrap">242.2</td><td>32</td></tr><tr class="hilist"><td>22</td><td class="hiplayer" nowrap="nowrap">村山　実</td><td class="hiteam" nowrap="nowrap">(阪　神)</td><td class="hiaverage">1.1858</td><td class="hiseason">(1959)</td><td class="hiip" nowrap="nowrap">295.1</td><td>39</td></tr><tr class="hilist"><td>23</td><td class="hiplayer" nowrap="nowrap">野口　二郎</td><td class="hiteam" nowrap="nowrap">(大　洋)</td><td class="hiaverage">1.193</td><td class="hiseason">(1942)</td><td class="hiip" nowrap="nowrap">527.1</td><td>70</td></tr><tr class="hilist"><td>24</td><td class="hiplayer" nowrap="nowrap">須田　博</td><td class="hiteam" nowrap="nowrap">(巨　人)</td><td class="hiaverage">1.200</td><td class="hiseason">(1941)</td><td class="hiip" nowrap="nowrap">150<br></td><td>20</td></tr><tr class="hilist"><td>25</td><td class="hiplayer" nowrap="nowrap">村山　実</td><td class="hiteam" nowrap="nowrap">(阪　神)</td><td class="hiaverage">1.201</td><td class="hiseason">(1962)</td><td class="hiip" nowrap="nowrap">366.1</td><td>49</td></tr></tbody></table></div><!-- -&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;-&#45;- --><div id="hidivfooter"><hr noshade="noshade" size="1" width="100%"><div id="hidivvs">［<b>防御率</b>］ <a href="ltp_era.html">通算記録</a> <span>|</span> <a href="acp_era.html">通算記録（現役選手）</a></div><div><img class="hilndetail" src="/bis/p/images_bis/line_history.gif"></div></div></div><!-- * *******/コンテンツ ****************************************** * -->
+		</div>
+
+
+<footer>
+	<div id="footer_team">
+		<div class="team_list">
+			<ul class="league">
+				<li><a href="/cl/" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/flag_central_s.gif" width="59" height="38" alt="セントラル・リーグ" title="セントラル・リーグ"></a></li>
+				<li><a href="http://www.carp.co.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_c_m.gif" width="38" height="38" alt="広島東洋カープ" title="広島東洋カープ"></a></li>
+				<li><a href="http://hanshintigers.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_t_m.gif" width="38" height="38" alt="阪神タイガース" title="阪神タイガース"></a></li>
+				<li><a href="http://www.baystars.co.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_db_m.gif" width="38" height="38" alt="横浜DeNAベイスターズ" title="横浜DeNAベイスターズ"></a></li>
+				<li><a href="http://www.giants.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_g_m.gif" width="38" height="38" alt="読売ジャイアンツ" title="読売ジャイアンツ"></a></li>
+				<li><a href="http://dragons.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_d_m.gif" width="38" height="38" alt="中日ドラゴンズ" title="中日ドラゴンズ"></a></li>
+				<li><a href="http://www.yakult-swallows.co.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_s_m.gif" width="38" height="38" alt="東京ヤクルトスワローズ" title="東京ヤクルトスワローズ"></a></li>
+			</ul>
+			<ul class="league">
+				<li><a href="/pl/" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/flag_pacific_s.gif" width="59" height="38" alt="パシフィック・リーグ" title="パシフィック・リーグ"></a></li>
+				<li><a href="http://www.softbankhawks.co.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_h_m.gif" width="38" height="38" alt="福岡ソフトバンクホークス" title="福岡ソフトバンクホークス"></a></li>
+				<li><a href="http://www.seibulions.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_l_m.gif" width="38" height="38" alt="埼玉西武ライオンズ" title="埼玉西武ライオンズ"></a></li>
+				<li><a href="http://www.rakuteneagles.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_e_m.gif" width="38" height="38" alt="東北楽天ゴールデンイーグルス" title="東北楽天ゴールデンイーグルス"></a></li>
+				<li><a href="http://www.buffaloes.co.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_bs_m.gif" width="38" height="38" alt="オリックス・バファローズ" title="オリックス・バファローズ"></a></li>
+				<li><a href="http://www.fighters.co.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_f_m.gif" width="38" height="38" alt="北海道日本ハムファイターズ" title="北海道日本ハムファイターズ"></a></li>
+				<li><a href="http://www.marines.co.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/2018/logo_m_m.gif" width="38" height="38" alt="千葉ロッテマリーンズ" title="千葉ロッテマリーンズ"></a></li>
+			</ul>
+			<ul class="samurai">
+				<li><a href="http://www.japan-baseball.jp/" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);"><img src="http://p.npb.jp/img/common/logo/logo_samurai_s.gif" width="49" height="49" alt="侍ジャパン" title="侍ジャパン"></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="wrap">
+		<div class="footer_logo"><img src="http://p.npb.jp/img/footer/logo_npb_footer.gif" width="377" height="37" alt="日本野球機構" title="日本野球機構"></div>
+		<nav class="hide_sp">
+			<ul>
+				<li class="category"><a href="/games/">試合</a></li>
+				<li><a href="/games/">セ・パ公式戦</a></li>
+				<li><a href="/interleague/">セ・パ交流戦</a></li>
+				<li><a href="/nippons/">日本シリーズ</a></li>
+				<li><a href="/allstar/">オールスター・ゲーム</a></li>
+				<li><a href="/preseason/">オープン戦</a></li>
+				<li><a href="/farm/">ファーム公式戦</a></li>
+				<li><a href="/farmchamp/">ファーム日本選手権</a></li>
+				<li><a href="/freshas/">フレッシュオールスター・ゲーム</a></li>
+				<li><a href="/challenge/">イースタン・リーグ チャレンジ・マッチ</a></li>
+				<li><a href="/preseason_farm/">春季教育リーグ</a></li>
+				<li><a href="/phoenix/">秋季教育リーグ</a></li>
+				<li><a href="/exhibition/">特別試合</a></li>
+				<li class="category"><a href="/bis/2018/stats/">成績・記録</a></li>
+				<li><a href="/bis/2018/stats/">シーズン成績</a></li>
+				<li><a href="/award/">表彰選手</a></li>
+				<li><a href="/history/">達成記録</a></li>
+				<li><a href="/bis/yearly/">年度別成績（1936-2017）</a></li>
+			</ul>
+			<ul>
+				<li><a href="/bis/history/">歴代最高記録（通算記録・シーズン記録）</a></li>
+				<li><a href="/stadium/">球場情報</a></li>
+				<li><a href="/statistics/">統計データ</a></li>
+				<li><a href="/scoring/">野球の記録について</a></li>
+				<li class="category"><a href="/teams/">球団・選手</a></li>
+				<li><a href="/teams/">球団別インデックス</a></li>
+				<li><a href="/bis/teams/">選手一覧</a></li>
+				<li><a href="/bis/players/">個人年度別成績</a></li>
+				<li><a href="/announcement/">公示</a></li>
+				<li><a href="/draft/">ドラフト会議</a></li>
+				<li><a href="/camp/">キャンプガイド</a></li>
+				<li><a href="/cl/">セントラル・リーグ</a></li>
+				<li><a href="/pl/">パシフィック・リーグ</a></li>
+				<li><a href="/umpires/">審判員・記録員</a></li>
+				<li class="category"><a href="/japanus/2018/">日本代表</a></li>
+				<li><a href="/wbc/">ワールド・ベースボール・クラシック</a></li>
+				<li><a href="/premier/">WBSC プレミア12</a></li>
+				<li><a href="/olympic/">オリンピック競技大会</a></li>
+			</ul>
+			<ul>
+				<li><a href="/apbc/">アジア プロ野球チャンピオンシップ</a></li>
+				<li><a href="/japan/">侍ジャパン強化試合</a></li>
+				<li><a href="/japanus/">日米野球</a></li>
+				<li><a href="/alljapan/">野球日本代表（その他）</a></li>
+				<li><a href="/asia/">アジアシリーズ/日韓クラブCS</a></li>
+				<li><a href="/winterleague/">ウインター・リーグ</a></li>
+				<li class="category"><a href="/news/npb_all.html">ニュース</a></li>
+				<li><a href="/news/npb_all.html">NPBニュース</a></li>
+				<li><a href="/news/teamnews_all.html">12球団ニュース</a></li>
+				<li><a href="/npb/">NPBからのお知らせ</a></li>
+				<li><a href="/event/">プロ野球年間行事日程</a></li>
+				<li><a href="/event/nenkan/">スケジュールカレンダー</a></li>
+				<li><a href="/video/">NPBムービー</a></li>
+				<li class="category"><a href="/junior/">事業・振興</a></li>
+				<li><a href="/slogan/">NPBスローガン</a></li>
+				<li><a href="/npb/#ctg01">試合観戦契約約款/暴力団等排除活動</a></li>
+				<li><a href="/anti-doping/">アンチ・ドーピング</a></li>
+				<li><a href="/rookie/">新人選手研修会</a></li>
+			</ul>
+			<ul>
+				<li><a href="/npb/#ctg23">セカンドキャリア</a></li>
+				<li><a href="/npb/kaifuku.html">学生野球資格回復制度</a></li>
+				<li><a href="/umpireschool/">NPBアンパイア・スクール</a></li>
+				<li><a href="/npb/#ctg25">野球振興</a></li>
+				<li><a href="/junior/">12球団ジュニアトーナメント</a></li>
+				<li><a href="/girls/">NPBガールズトーナメント</a></li>
+				<li><a href="/npb/#ctg21">東日本大震災復興支援</a></li>
+				<li><a href="/bbfesta/">ベースボールフェスタ</a></li>
+				<li><a href="/auction/">チャリティーオークション</a></li>
+				<li><a href="/gbp/">NPB Green Baseball Project</a></li>
+				<li><a href="/cool/">環境貢献活動</a></li>
+				<li><a href="/esports/">eスポーツ</a></li>
+				<li><a href="/kyogikai/">日本野球協議会</a></li>
+				<li class="category"><a href="http://shop.npb.or.jp/npbshop/ad.html?ccd=t10092408" target="_blank">グッズ</a></li>
+				<li><a href="/books/">グッズ・書籍のご案内</a></li>
+				<li><a href="/game/">承認ゲームメーカー</a></li>
+				<li><a href="http://shop.npb.or.jp/npbshop/ad.html?ccd=b10090002" target="_blank" onclick="ga('send', 'event', 'footer', 'click', this.href);">NPBオフィシャルオンラインショップ</a></li>
+			</ul>
+		</nav>
+		<div class="mobile_info hide_sp">
+			<img src="http://p.npb.jp/img/footer/icon_mobile.gif" alt="">
+			<p class="text">モバイルでも npb.jp にアクセス</p>
+		</div>
+		<ul class="footer_link">
+			<li><a href="/organization/">一般社団法人日本野球機構について</a></li>
+			<li><a href="/recruit/">採用情報</a></li>
+			<li><a href="/link/">リンク集</a></li>
+			<li><a href="/sitemap/">サイトマップ</a></li>
+			<li><a href="/policy/">プライバシーポリシー</a></li>
+			<li><a href="/form/opinionbox/">ご意見箱</a></li>
+			<li><a href="/mailmaga/">メールマガジン</a></li>
+			<li><a href="/social/">ソーシャルメディア</a></li>
+		</ul>
+		<div class="copyright">Copyright (C) 1996-2018 Nippon Professional Baseball Organization. All Rights Reserved.<br>掲載の情報・画像等の無断転載を固く禁じます。</div>
+	</div>
+
+
+</footer>
+
+
+	</div>
+
+</body></html>
